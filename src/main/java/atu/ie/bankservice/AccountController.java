@@ -8,8 +8,8 @@ public class AccountController {
     private final List<Account> accountlist;
     public AccountController(){
         accountlist = new ArrayList<>();
-        accountlist.add(new  Account("joe jon",256172,699.08,"pass"));
-        accountlist.add(new Account("billy bob",890234,4000.00,"word"));
+        accountlist.add(new  Account("joe jon", "pass"));
+        accountlist.add(new Account("billy bob", "word"));
     }
     @GetMapping
     public List<Account> getAccountlist(){
@@ -25,5 +25,33 @@ public class AccountController {
             }
         }
         return "login failed";
+    }
+
+    @PostMapping("/addAccount")
+    public String addAccount(@RequestParam String name,@RequestParam String passcode){
+        for(Account account : accountlist){
+            if(account.getPasscode().equals(passcode) && account.getAccount_Name().equals(name))
+            {
+                return "account already exists, "+account.getAccount_Name();
+
+            }
+        }
+        accountlist.add(new Account(passcode,name));
+        return "add account success";
+
+    }
+
+    @DeleteMapping("/DeleteAccount")
+    public String deleteAccount(@RequestParam String name,@RequestParam String passcode){
+        for(Account account : accountlist){
+            if(account.getPasscode().equals(passcode) && account.getAccount_Name().equals(name))
+            {
+                accountlist.remove(account);
+                return "deleting : "+account.getAccount_Name();
+
+            }
+        }
+        return "invalid credentials";
+
     }
 }
