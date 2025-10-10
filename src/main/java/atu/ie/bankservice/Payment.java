@@ -1,10 +1,10 @@
 package atu.ie.bankservice;
 
 public class Payment {
-    private String id;
-    private double amount;
-    public String tx;
-    public String rx;
+    private final String id;
+    private final double amount;
+    public final String tx;
+    public  final String rx;
 
     public Payment(String id, double amount, String tx, String rx) {
         this.id = id;

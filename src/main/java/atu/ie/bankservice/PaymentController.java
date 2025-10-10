@@ -6,24 +6,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/payments")
+@RequestMapping("/payments")
 public class PaymentController {
     private final PaymentServices paymentServices;
     public PaymentController(PaymentServices paymentServices) {
         this.paymentServices = paymentServices;
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public List<Payment> getPayments() {
-        return paymentServices.getPayments();
+        return paymentServices.getPayments(paymentServices);
     }
 
-    @PostMapping
-    public Payment createPayment(@RequestBody Payment payment) {
+    @PostMapping("/post")
+    public List<Payment> createPayment(@RequestBody Payment payment) {
         return paymentServices.createPayment(payment);
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public List<Payment> updatePayment(@RequestBody Payment payment) {
         return paymentServices.updatePayment(payment);
     }
