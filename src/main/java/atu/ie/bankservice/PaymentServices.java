@@ -17,4 +17,9 @@ public class PaymentServices {
         payments.add(payment);
         return payment;
     }
+
+    public List<Payment> updatePayment(Payment payment) {
+        payments.add(payment);
+        return List.of(payment);
+    }
 }
