@@ -1,9 +1,7 @@
 package atu.ie.bankservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,15 @@ public class PaymentController {
     @GetMapping
     public List<Payment> getPayments() {
         return paymentServices.getPayments();
+    }
+
+    @PostMapping
+    public Payment createPayment(@RequestBody Payment payment) {
+        return paymentServices.createPayment(payment);
+    }
+
+    @PutMapping
+    public List<Payment> updatePayment(@RequestBody Payment payment) {
+        return paymentServices.updatePayment(payment);
     }
 }
