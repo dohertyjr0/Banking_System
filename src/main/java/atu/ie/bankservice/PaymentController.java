@@ -9,13 +9,14 @@ import java.util.List;
 @RequestMapping("/payments")
 public class PaymentController {
     private final PaymentServices paymentServices;
+
     public PaymentController(PaymentServices paymentServices) {
         this.paymentServices = paymentServices;
     }
 
     @GetMapping("/get")
     public List<Payment> getPayments() {
-        return paymentServices.getPayments(paymentServices);
+        return paymentServices.getPayments();
     }
 
     @PostMapping("/post")
@@ -24,7 +25,12 @@ public class PaymentController {
     }
 
     @PutMapping("/update")
-    public List<Payment> updatePayment(@RequestBody Payment payment) {
+    public Payment updatePayment(@RequestBody Payment payment) {
         return paymentServices.updatePayment(payment);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deletePayment(@PathVariable String id) {
+        boolean removed = paymentServices.deleteById(id);
     }
 }
