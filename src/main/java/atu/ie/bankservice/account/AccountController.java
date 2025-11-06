@@ -16,20 +16,20 @@ public class AccountController {
       return accountService.getAllAccounts();
    }
    @PostMapping("Login")
-    public String login(@RequestParam String passcode, @RequestParam String name){
+    public String login(@RequestParam String name, @RequestParam String passcode){
        return accountService.login(name, passcode);
    }
    @PostMapping("AddAccount")
-    public String addAccount(@RequestParam String passcode, @RequestParam String name){
+    public String addAccount(@RequestParam String name, @RequestParam String passcode){
        return accountService.addAccount(name, passcode);
    }
    @DeleteMapping("DeleteAccount")
-    public String deleteAccount(@RequestParam String passcode, @RequestParam String name){
+    public String deleteAccount(@RequestParam String name, @RequestParam String passcode){
        return accountService.deleteAccount(name, passcode);
    }
    @PutMapping("UpdateAccount")
-    public String updateAccount(@RequestParam int id,@RequestParam String passcode, @RequestParam String name){
-       return accountService.updateAccount(id,name, passcode);
+    public String updateAccount(@RequestParam int accountNumber,@RequestParam String name, @RequestParam String passcode){
+       return accountService.updateAccount(accountNumber,name, passcode);
    }
 
 }
