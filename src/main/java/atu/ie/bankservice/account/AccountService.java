@@ -40,9 +40,9 @@ public class AccountService {
         }
         return "invalid credentials";
     }
-    public String updateAccount(int id, String name, String passcode) {
+    public String updateAccount(int accountNumber, String name, String passcode) {
         for (Account account : accountlist) {
-            if (account.getAccount_Number() == id) {
+            if (account.getAccount_Number() == accountNumber) {
                 account.setAccount_Name(name);
                 account.setPasscode(passcode);
                 return "update success";
