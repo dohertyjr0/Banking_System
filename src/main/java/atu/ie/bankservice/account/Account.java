@@ -1,4 +1,4 @@
-package atu.ie.bankservice;
+package atu.ie.bankservice.account;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,11 +13,13 @@ public class Account {
     private String Passcode;
 
     public Account(List<Account> accountlist) {
+        this.Account_Name = accountlist.get(0).getAccount_Name();
     }
 
     public Account(String passcode, String name) {
-
-        this.Passcode = passcode;
         this.Account_Name = name;
+        this.Passcode = passcode;
+       this.Account_Number = 0;
+       this.Balance = 0;
     }
 }
