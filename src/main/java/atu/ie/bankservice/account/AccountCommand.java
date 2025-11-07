@@ -17,5 +17,6 @@ public class AccountCommand implements CommandLineRunner {
          accountRepository.save(account1);
          accountRepository.save(account2);
          accountRepository.save(account3);
+
     }
 }
