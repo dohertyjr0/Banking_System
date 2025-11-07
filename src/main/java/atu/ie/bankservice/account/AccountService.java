@@ -24,8 +24,8 @@ public class AccountService {
     public Account update(Account account){
         return Repo.save(account);
     }
-    public void delete(Account account){
-        Repo.delete(account);
+    public void delete(Long id){
+        Repo.deleteById(id);
     }
     public List<Account> findAll(){
         return Repo.findAll();
