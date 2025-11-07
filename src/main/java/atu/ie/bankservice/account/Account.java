@@ -52,5 +52,4 @@ public class Account {
         Balance = balance;
     }
 
-
 }
