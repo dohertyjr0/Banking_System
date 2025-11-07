@@ -1,6 +1,8 @@
 package atu.ie.bankservice.account;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.*;
 
 @Entity
@@ -14,8 +16,10 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String AccountName;
     private int AccountNumber;
+    @Positive
     private double Balance;
 
     public Account(String accountName, int accountNumber, double balance) {
