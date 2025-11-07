@@ -14,16 +14,39 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Account_Name;
-    private int Account_Number;
+    private String AccountName;
+    private int AccountNumber;
     private double Balance;
-    private String Passcode;
 
-
-    public Account(String passcode, String name) {
-        this.Account_Name = name;
-        this.Passcode = passcode;
-       this.Account_Number = 0;
-       this.Balance = 0;
+    public Account(String accountName, int accountNumber, double balance) {
+        AccountName = accountName;
+        AccountNumber = accountNumber;
+        Balance = balance;
     }
+
+    public String getAccountName() {
+        return AccountName;
+    }
+
+    public void setAccountName(String accountName) {
+        AccountName = accountName;
+    }
+
+    public int getAccountNumber() {
+        return AccountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        AccountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return Balance;
+    }
+
+    public void setBalance(double balance) {
+        Balance = balance;
+    }
+
+
 }
