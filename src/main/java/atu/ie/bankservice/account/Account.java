@@ -1,14 +1,19 @@
 package atu.ie.bankservice.account;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
-
+@Entity
+@Table(name = "account")
 @Data
+@Getter @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String Account_Name;
     private double Account_Number;
     private double Balance;
