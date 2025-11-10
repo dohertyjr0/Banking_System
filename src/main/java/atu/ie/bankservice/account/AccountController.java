@@ -32,7 +32,7 @@ public class AccountController {
     }
 
     @PostMapping("AddAccount")
-    public Account create(@RequestBody Account account){
+    public Account create(@Valid @RequestBody Account account){
        return accountService.create(account);
    }
 
