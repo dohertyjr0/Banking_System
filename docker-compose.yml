@@ -1,0 +1,21 @@
+services:
+  bankingsystemaccountservice:
+    image:
+    env_file: ./.env
+    ports:
+      - "8081:8081"
+    networks:
+      - labnet
+
+  proxy-service:
+    image:
+    env_file: ./.env
+    depends_on:
+      - greeting-service
+    ports:
+      - "8080:8080"
+    networks:
+      - labnet
+
+networks:
+  labnet:
