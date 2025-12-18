@@ -1,11 +1,24 @@
 services:
   bankingsystemaccountservice:
-    image: ghcr.io/murphym2004/banking_systems_account_service/app
+    image: ghcr.io/murphym2004/account-service/app
     env_file: ./.env
     ports:
       - "8081:8081"
     networks:
       - labnet
+
+  db:
+    image: postgres:17-alpine
+    env_file: ./.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - labnet
+
+volumes:
+  postgres-data:
 
 
 networks:
