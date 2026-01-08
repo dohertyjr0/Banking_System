@@ -7,6 +7,17 @@ services:
     networks:
       - labnet
 
+  user-service:
+    image: ghcr.io/davidprender1/user-service:latest
+    env_file:
+      - ./.env
+    ports:
+      - "8083:8083"
+    depends_on:
+      - db
+    networks:
+      - labnet
+
   db:
     image: postgres:17-alpine
     env_file: ./.env
